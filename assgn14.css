@@ -1,0 +1,29 @@
+<style type='text/css'>
+body{
+font-family:arial;
+font-size:1.2em;
+}
+
+ul#tasks{
+  border:solid 1px #ccc;
+  border-radius:3px;
+  width:500px;
+  height:300px;
+  overflow:scroll;
+  padding-left:0;
+  margin-left:0;
+  list-style-type:none;
+
+}
+ul#tasks li{
+margin:5px;
+border:solid 1px #ccc;
+background:#eee;
+padding:7px;
+}
+
+ul#tasks>li>input[type=button]{
+float: right;
+}  
+
+</style>

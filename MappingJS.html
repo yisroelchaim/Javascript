@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+  <p id="result"></p>
+
+
+
+  <script type="text/javascript">
+    var arrNums = [1,14,25,38,99,105,300,-5,0];
+    console.log(arrNums);
+    function mapCallback(val,idx,arr){
+      var returnValue = "nil";
+      var singles = ["zero","one","two","three","four","five","six","seven","eight","nine"];
+      var tens = ["twenty","thirty","fourty","fifty","sixty","seventy","eighty","ninety"];
+      var elevenToNineteen = ["eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+      if( val < 0 ){
+        returnValue = "nil";
+      }
+      else if(val.toString().length < 2){
+        
+        var inWords = singles[val];
+        returnValue = inWords;
+      }
+      else if( val.toString().length == 2){
+        if( val >= 11 && val <= 19 ){
+          returnValue = elevenToNineteen[val - 11];
+        }
+        if( val > 20 && val <= 99){ // eg. 26
+          var lastDigit = val % 10; // 6
+          var lastWord = singles[lastDigit];
+
+          var firstDigit = Math.floor(val / 10) % 10; // 2
+          var firstWord = tens[firstDigit-2];
+          returnValue = firstWord +"-"+ lastWord;
+        }
+      }
+      else{
+        returnValue =  "nil"
+      }
+
+      return returnValue;
+    }
+
+    var mapped = arrNums.map(mapCallback);
+    console.log(mapped);
+
+  </script>
+</body>
+</html>
